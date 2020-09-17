@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">hans_0706011910007</string>
+    <string name="app_name">MAD Review OOP</string>
+    <string name="noData">No Data</string>
+    <string name="listUsers">List Users</string>
+    <string name="addUser">Add User</string>
+    <string name="saveData">Save Data</string>
 </resources>
