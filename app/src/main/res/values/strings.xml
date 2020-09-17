@@ -6,4 +6,6 @@
     <string name="saveData">Save Data</string>
     <string name="text_salah" />
     <string name="text_loading">loading....</string>
+    <string name="lbl_age">Age</string>
+    <string name="lbl_address">Address</string>
 </resources>
