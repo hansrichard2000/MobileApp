@@ -4,4 +4,6 @@
     <string name="listUsers">List Users</string>
     <string name="addUser">Add User</string>
     <string name="saveData">Save Data</string>
+    <string name="text_salah" />
+    <string name="text_loading">loading....</string>
 </resources>
