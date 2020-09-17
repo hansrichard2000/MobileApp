@@ -3,7 +3,9 @@ package com.uc.hans_0706011910007;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lbl_no_data = findViewById(R.id.textView);
+        mRecycleView= findViewById(R.id.recyclerView);
+        button_add = findViewById(R.id.button_add);
+        button_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddUserActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        if (listUsers.isEmpty()){
+            lbl_no_data.setVisibility(View.VISIBLE);
+        }
+        else{
+            lbl_no_data.setVisibility(View.INVISIBLE);
+            showUsers(listUsers);
+        }
+    }
+
+    private void showUsers(ArrayList<User> listUsers) {
 
     }
 }
