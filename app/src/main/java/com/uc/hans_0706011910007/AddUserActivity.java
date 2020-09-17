@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -25,11 +26,12 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
     String fname, age, address;
     Toolbar toolbar;
     ProgressDialog progressDialog;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
-        toolbar = findViewById(R.id.toolbar_add_user);
+        toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -89,5 +91,13 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
     @Override
     public void afterTextChanged(Editable editable) {
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }

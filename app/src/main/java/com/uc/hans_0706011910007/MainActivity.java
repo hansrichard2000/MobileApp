@@ -1,6 +1,7 @@
 package com.uc.hans_0706011910007;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -48,6 +49,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showUsers(ArrayList<User> listUsers) {
+        mRecycleView.setHasFixedSize(true);
+        mRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        MainAdapter adapter = new MainAdapter(MainActivity.this);
+        adapter.setListUsers(listUsers);
+        mRecycleView.setAdapter(adapter);
+    }
 
+    @Override
+    public void onBackPressed(){
+        if (backPressedTime + 2000 > System.currentTimeMillis() ){
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        }
+        else{
+            backToast=Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressedTime = System.currentTimeMillis();
     }
 }
