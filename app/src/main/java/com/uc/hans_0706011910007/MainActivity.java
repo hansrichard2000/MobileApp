@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
 //        Log.d(TAG, "OnItemClick: clicked" + position);
 
         Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
-        intent.putExtra("listUsers", listUsers.get(position));
+        intent.putExtra("listUsers", listUsers);
+        intent.putExtra("pos", position);
         startActivity(intent);
         finish();
     }

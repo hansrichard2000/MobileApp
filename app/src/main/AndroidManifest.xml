@@ -16,8 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddUserActivity" android:parentActivityName=".MainActivity"/>
-        <activity android:name=".EditUserActivity" android:parentActivityName=".UserDetailActivity"/>
+        <activity android:name=".AddUserActivity" android:launchMode="singleTop"/>
         <activity android:name=".UserDetailActivity" android:parentActivityName=".MainActivity"/>
     </application>
 

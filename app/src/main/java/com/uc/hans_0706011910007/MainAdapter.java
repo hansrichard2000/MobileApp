@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.uc.hans_0706011910007.model.User;
@@ -17,6 +18,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
     private Context context;
     private ArrayList<User> listUsers;
     private OnItemClickListener mOnItemClickListener;
+    CardView cardView;
 
     public interface OnItemClickListener{
         void OnItemClick(int position);
@@ -48,6 +50,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
         holder.fname.setText(u.getFname());
         holder.age.setText(u.getAge()+" Years Old");
         holder.address.setText(u.getAddress());
+
     }
 
     @Override
