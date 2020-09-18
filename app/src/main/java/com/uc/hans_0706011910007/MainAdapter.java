@@ -16,13 +16,19 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHolder> {
     private Context context;
     private ArrayList<User> listUsers;
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
 
     public ArrayList<User> getListUsers() {
         return listUsers;
     }
 
-    public void setListUsers(ArrayList<User> listUsers) {
+    public void setListUsers(ArrayList<User> listUsers, OnItemClickListener onItemClickListener) {
         this.listUsers = listUsers;
+        this.mOnItemClickListener = onItemClickListener;
     }
 
     public MainAdapter(Context context) {
@@ -33,7 +39,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
     @Override
     public MainAdapter.CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_card, parent, false);
-        return new MainAdapter.CardViewViewHolder(view);
+        return new MainAdapter.CardViewViewHolder(view, mOnItemClickListener);
     }
 
     @Override
@@ -49,13 +55,21 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
         return getListUsers().size();
     }
 
-    public class CardViewViewHolder extends RecyclerView.ViewHolder {
+    public class CardViewViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView fname, age, address;
-        public CardViewViewHolder(@NonNull View itemView) {
+        OnItemClickListener onItemClickListener;
+        public CardViewViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
             fname = itemView.findViewById(R.id.fname);
             age = itemView.findViewById(R.id.age);
             address = itemView.findViewById(R.id.address);
+            this.onItemClickListener = onItemClickListener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.OnItemClick(getAdapterPosition());
         }
     }
 }

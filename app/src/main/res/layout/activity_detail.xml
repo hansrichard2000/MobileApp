@@ -27,7 +27,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/fname2"
+        app:layout_constraintBottom_toTopOf="@+id/fname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3"
@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/fname2"
+        android:id="@+id/fname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"

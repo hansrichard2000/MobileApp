@@ -1,11 +1,16 @@
 package com.uc.hans_0706011910007;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,11 +21,13 @@ import com.uc.hans_0706011910007.model.User;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements MainAdapter.OnItemClickListener {
+    private static final String TAG = "try";
+    CardView holder;
     RecyclerView mRecycleView;
     private long backPressedTime;
     private Toast backToast;
+    private MainAdapter adapter;
     FloatingActionButton button_add;
     TextView lbl_no_data;
     ArrayList<User> listUsers = SimpanData.listUsers;
@@ -48,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showUsers(ArrayList<User> listUsers) {
+    private void showUsers(final ArrayList<User> listUsers) {
         mRecycleView.setHasFixedSize(true);
         mRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        MainAdapter adapter = new MainAdapter(MainActivity.this);
-        adapter.setListUsers(listUsers);
+        adapter = new MainAdapter(MainActivity.this);
+        adapter.setListUsers(listUsers, this);
         mRecycleView.setAdapter(adapter);
     }
 
@@ -69,4 +76,15 @@ public class MainActivity extends AppCompatActivity {
         }
         backPressedTime = System.currentTimeMillis();
     }
+
+    @Override
+    public void OnItemClick(int position) {
+        Log.d(TAG, "OnItemClick: clicked" + position);
+//        listUsers.get(position);
+//        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+//        intent.putExtra("listUsers", position);
+//        startActivity(intent);
+//        finish();
+    }
 }
+
