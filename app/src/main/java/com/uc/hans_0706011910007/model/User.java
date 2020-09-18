@@ -24,6 +24,18 @@ public class User implements Parcelable {
         return age;
     }
 
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
     @Override
     public int describeContents() {
         return 0;

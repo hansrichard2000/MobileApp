@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
 
     @Override
     public void OnItemClick(int position) {
-        Log.d(TAG, "OnItemClick: clicked" + position);
-//        listUsers.get(position);
-//        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
-//        intent.putExtra("listUsers", position);
-//        startActivity(intent);
-//        finish();
+//        Log.d(TAG, "OnItemClick: clicked" + position);
+
+        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+        intent.putExtra("listUsers", listUsers.get(position));
+        startActivity(intent);
+        finish();
     }
 }
 
