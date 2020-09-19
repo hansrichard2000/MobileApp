@@ -20,11 +20,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
     private Context context;
     private ArrayList<User> listUsers;
     CardView user_card;
-//    private OnItemClickListener mOnItemClickListener;
 
-//    public interface OnItemClickListener{
-//        void OnItemClick(int position);
-//    }
 
     public ArrayList<User> getListUsers() {
         return listUsers;
@@ -32,7 +28,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
 
     public void setListUsers(ArrayList<User> listUsers) {
         this.listUsers = listUsers;
-//        this.mOnItemClickListener = onItemClickListener;
     }
 
     public MainAdapter(Context context) {
@@ -76,12 +71,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewViewHo
             age = itemView.findViewById(R.id.age);
             address = itemView.findViewById(R.id.address);
             user_card = itemView.findViewById(R.id.user_card);
-//            itemView.setOnClickListener(this);
         }
-
-//        @Override
-//        public void onClick(View view) {
-//            onItemClickListener.OnItemClick(getAdapterPosition());
-//        }
     }
 }

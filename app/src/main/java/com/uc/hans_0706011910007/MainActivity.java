@@ -77,14 +77,5 @@ public class MainActivity extends AppCompatActivity{
         backPressedTime = System.currentTimeMillis();
     }
 
-//    @Override
-//    public void OnItemClick(int position) {
-//        Log.d(TAG, "OnItemClick: clicked" + position);
-//
-//        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
-//        intent.putExtra("listUsers", listUsers.get(position));
-//        startActivity(intent);
-//        finish();
-//    }
 }
 
