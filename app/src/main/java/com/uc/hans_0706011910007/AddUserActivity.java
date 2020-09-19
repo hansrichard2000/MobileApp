@@ -21,6 +21,8 @@ import com.uc.hans_0706011910007.model.User;
 
 import java.util.ArrayList;
 
+import java.util.ArrayList;
+
 public class AddUserActivity extends AppCompatActivity implements TextWatcher {
 
     TextInputLayout user_nama, user_umur, user_alamat;
@@ -28,6 +30,10 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
     String fname, age, address;
     boolean update;
     Toolbar toolbar;
+    boolean update;
+    int position = 0;
+    ArrayList<User> listUsers = SimpanData.listUsers;
+    User user;
     ProgressDialog progressDialog;
     int position = 0;
     User user;

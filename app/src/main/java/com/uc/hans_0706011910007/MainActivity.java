@@ -21,7 +21,7 @@ import com.uc.hans_0706011910007.model.User;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements MainAdapter.OnItemClickListener {
+public class MainActivity extends AppCompatActivity{
     private static final String TAG = "try";
     CardView holder;
     RecyclerView mRecycleView;
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
         mRecycleView.setHasFixedSize(true);
         mRecycleView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         adapter = new MainAdapter(MainActivity.this);
-        adapter.setListUsers(listUsers, this);
+        adapter.setListUsers(listUsers);
         mRecycleView.setAdapter(adapter);
     }
 
@@ -77,14 +77,14 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
         backPressedTime = System.currentTimeMillis();
     }
 
-    @Override
-    public void OnItemClick(int position) {
+//    @Override
+//    public void OnItemClick(int position) {
 //        Log.d(TAG, "OnItemClick: clicked" + position);
-
-        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
-        intent.putExtra("listUsers", listUsers.get(position));
-        startActivity(intent);
-        finish();
-    }
+//
+//        Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+//        intent.putExtra("listUsers", listUsers.get(position));
+//        startActivity(intent);
+//        finish();
+//    }
 }
 
