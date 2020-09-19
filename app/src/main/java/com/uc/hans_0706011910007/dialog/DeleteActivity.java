@@ -34,6 +34,7 @@ public class DeleteActivity extends AppCompatDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
                 .setMessage("Are you sure you want to delete " + itemUsers.get(pos).getFname() + "?")
+                .setIcon(R.drawable.ic_baseline_adb_24)
                 .setTitle("Alert")
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
