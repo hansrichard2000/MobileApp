@@ -82,73 +82,23 @@ public class AddUserActivity extends AppCompatActivity implements TextWatcher {
                 finish();
             }
         });
-//        if (Integer.toString(getIntent().getIntExtra("pos", 0))!=null){
-//            update = true;
-//            position = getIntent().getIntExtra("pos", 0);
-//            listUsers = getIntent().getParcelableArrayListExtra("listUsers");
-//            user = listUsers.get(position);
-//            user_nama.getEditText().setText(user.getFname());
-//            user_umur.getEditText().setText(user.getAge().replaceAll("\\D", ""));
-//            user_alamat.getEditText().setText(user.getAddress());
-//            getSupportActionBar().setTitle("Edit User");
-//            button_tambah.setText("Update Data");
-//        }
-
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ArrayList<User>list = SimpanData.listUsers;
-//                if
-//                Intent intent = new Intent(AddUserActivity.this, UserDetailActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
-//        button_tambah.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
-//                if (update==true){
-//
-//                    listUsers.get(position).setFname(fname);
-//                    listUsers.get(position).setAge(age);
-//                    listUsers.get(position).setAddress(address);
-//                    intent.putExtra("listUsers", listUsers);
-//                }
-//                else{
-//                    button_tambah.setText("Save Data");
-//                    getSupportActionBar().setTitle("Add User");
-//                    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
-//                            startActivity(intent);
-//                            finish();
-//                        }
-//                    });
-//                    button_tambah.setOnClickListener(new View.OnClickListener() {
-//                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//                        @Override
-//                        public void onClick(View view) {
-//                            progressDialog = new ProgressDialog(AddUserActivity.this);
-//                            progressDialog.show();
-//                            progressDialog.setContentView(R.layout.dialog_loading);
-//                            progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-//                            User user = new User(fname, address, age);
-//                            SimpanData.listUsers.add(user);
-//                            Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
-//                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(AddUserActivity.this);
-//                            startActivity(intent, options.toBundle());
-//                            finish();
-//                        }
-//                    });
-//                }
-//            }
-//        });
-
-
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user == null){
+                    Intent intent = new Intent(AddUserActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    Intent intent = new Intent(AddUserActivity.this, UserDetailActivity.class);
+                    intent.putExtra("listUsers", listUsers.get(pos));
+                    intent.putExtra("position", pos);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
 
     }
 
